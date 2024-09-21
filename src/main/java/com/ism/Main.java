@@ -15,6 +15,7 @@ import com.ism.repositories.interfaces.IClientRepository;
 import com.ism.repositories.interfaces.IDebtRepository;
 import com.ism.repositories.AccountRepository;
 import com.ism.repositories.PaymentRepository;
+import com.ism.repositories.BD.ClientRepositoriesBD;
 import com.ism.repositories.DebtRepository;
 import com.ism.repositories.ClientRepository;
 import com.ism.repositories.ArticleRepository;
@@ -38,7 +39,8 @@ public class Main {
         AccountService accountService = new AccountService(accountRepository);
         AccountView accountView = new AccountView();
 
-        IClientRepository<Client> clientRepository = new ClientRepository();
+        // IClientRepository<Client> clientRepository = new ClientRepository();
+          ClientRepositoriesBD clientRepository = new ClientRepositoriesBD();
         ClientService clientService = new ClientService(clientRepository);
         ClientView clientView = new ClientView();
 

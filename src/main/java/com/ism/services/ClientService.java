@@ -12,9 +12,6 @@ import com.ism.services.interfaces.IClientService;
 public class ClientService implements IClientService {
     private IClientRepository<Client> clientRepository;
 
-    public ClientService() {
-    }
-
     public ClientService(IClientRepository<Client> clientRepository) {
         this.clientRepository = clientRepository;
     }
