@@ -49,7 +49,7 @@ public class UserRepositoryBD extends RepositoryBDImpl<User> implements UserRepo
 
         try {
 
-            String sql = "INSERT INTO `user` (`nom`, `prenom`, `login`, `password`, `role`, `etat`) VALUES (?,?,?,?,?, '1');";
+            String sql = "INSERT INTO `user` (`nom`, `prenom`, `login`, `password`, `role`, `state`) VALUES (?,?,?,?,?, '1');";
             this.getConnection();
             this.initPreparedStatement(sql);
  

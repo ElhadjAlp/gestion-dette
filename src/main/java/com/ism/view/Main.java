@@ -84,7 +84,36 @@ public class Main {
 
                     break;
                 case 4:
-                    break;
+
+                User user = new User();
+                System.out.println("Entrer le Nom");
+                user.setNom(scanner.nextLine());
+                System.out.println("Entrer le Prenom");
+                user.setPrenom(scanner.nextLine());
+                System.out.println("Entrer le Login");
+                user.setLogin(scanner.nextLine());
+                System.out.println("Entrer le Password");
+                user.setPassword(scanner.nextLine());
+
+                System.out.println("Choisir le rôle : ");
+                System.out.println("1. ADMIN");
+                System.out.println("2. CLIENT");
+                int roleChoice = scanner.nextInt();
+                scanner.nextLine(); 
+            
+                if (roleChoice == 1) {
+                    user.setRole(RoleEnum.ADMIN);
+                } else if (roleChoice == 2) {
+                    user.setRole(RoleEnum.CLIENT);
+                } else {
+                    System.out.println("Rôle non valide, utilisateur par défaut 'CLIENT'");
+                    user.setRole(RoleEnum.CLIENT);
+                }
+            
+                userServiceImpl.createUser(user);
+                System.out.println("Utilisateur créé avec succès !");
+                break;
+            
 
                 case 5:
                     List<User> listUsers = userServiceImpl.findAllUser();

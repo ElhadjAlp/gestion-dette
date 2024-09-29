@@ -6,7 +6,7 @@ import com.ism.core.Database.Database;
 
 public class DatabaseImpl implements Database {
 
-    private final String url = "jdbc:mysql://localhost:8889/gestion_dette_glrs_2024";
+    private final String url = "jdbc:postgresql://localhost:5433/gestion_dette_2025";
     private final String user = "root";
     private final String password = "root";
     protected PreparedStatement ps;
