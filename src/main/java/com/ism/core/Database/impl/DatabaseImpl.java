@@ -6,9 +6,9 @@ import com.ism.core.Database.Database;
 
 public class DatabaseImpl implements Database {
 
-    private final String url = "jdbc:postgresql://localhost:5433/gestion_dette_2025";
-    private final String user = "root";
-    private final String password = "root";
+    private final String url ="jdbc:postgresql://localhost:5433/gestion_dette_2025";
+    private final String user = "postgres";
+     private final String password = "root";
     protected PreparedStatement ps;
     protected Connection conn = null;
 
@@ -45,6 +45,7 @@ public class DatabaseImpl implements Database {
     @Override
     public void initPreparedStatement(String sql) throws SQLException {
 
+        System.out.println(sql);
         if (sql.toUpperCase().trim().startsWith("INSERT")) {
             ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         } else {

@@ -8,4 +8,5 @@ public interface UserService {
 
     public void createUser(User user) ;
     public List<User> findAllUser();
+    User authenticate(String login, String password);
 }

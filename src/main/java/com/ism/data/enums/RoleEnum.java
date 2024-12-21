@@ -1,7 +1,7 @@
 package com.ism.data.enums;
 
 public enum RoleEnum {
-    BOUTIQUIER, CLIENT, ADMIN;
+    DEFAULT_ROLE,BOUTIQUIER, CLIENT, ADMIN;
 
     public static RoleEnum getValue(String roleName) {
         for (RoleEnum role : RoleEnum.values()) {

@@ -8,8 +8,8 @@ public interface ClientService {
     void createClient(Client client);
 
     List<Client> findAllClient();
-
     Client searchClient(String telephone);
-
     Client searchClientBySurname(String surname);
+    Client findById(int clientId);
+    Client findById(List<Client> clients, int clientId);
 }

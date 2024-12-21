@@ -1,0 +1,75 @@
+package com.ism.core.factory.impl;
+
+import com.ism.core.factory.FactoryRepository;
+import com.ism.data.repository.ArticleRepository;
+import com.ism.data.repository.ClientRepository;
+import com.ism.data.repository.DetailRepository;
+import com.ism.data.repository.DetteRepository;
+import com.ism.data.repository.PaymentRepository;
+import com.ism.data.repository.UserRepository;
+import com.ism.data.repository.bd.ArticleRepositoryBD;
+import com.ism.data.repository.bd.ClientRepositoryBD;
+import com.ism.data.repository.bd.DetailRepositoryBD;
+import com.ism.data.repository.bd.DetteRepositoryBD;
+import com.ism.data.repository.bd.PaymentRepositoryBD;
+import com.ism.data.repository.bd.UserRepositoryBD;
+
+
+public class FactoryRepositoryImpl implements FactoryRepository {
+    private UserRepository userRepository;
+    private ClientRepository clientRepository;
+    private ArticleRepository articleRepository;
+    private DetteRepository detteRepository;
+    private PaymentRepository paymentRepository;
+    private DetailRepository detailRepository;
+
+    @Override
+    public ClientRepository getInstanceClientRepository() {
+        if (clientRepository == null) {
+            clientRepository = new ClientRepositoryBD(userRepository);
+        }
+        return clientRepository;
+    }
+
+    @Override
+    public UserRepository getInstanceUserRepository() {
+        if (userRepository == null) {
+            userRepository = new UserRepositoryBD();
+        }
+        return userRepository;
+    }
+
+    @Override
+    public ArticleRepository getInstanceArticleRepository() {
+        if (articleRepository == null) {
+            articleRepository = new ArticleRepositoryBD();
+        }
+        return articleRepository;
+    }
+
+    @Override
+    public DetteRepository getInstanceDetteRepository() {
+        if (detteRepository == null) {
+            detteRepository = new DetteRepositoryBD();
+        }
+        return detteRepository;
+    }
+
+    @Override
+    public PaymentRepository getInstancePaymentRepository() {
+        if (paymentRepository == null) {
+            paymentRepository = new PaymentRepositoryBD();
+        }
+        return paymentRepository;
+    }
+
+    @Override
+    public DetailRepository getInstanceDetailRepository() {
+        if (detailRepository == null) {
+            detailRepository = new DetailRepositoryBD(); 
+        }
+        return detailRepository;
+    }
+}
+
+
