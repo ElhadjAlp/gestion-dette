@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.ColumnDefault;
 
@@ -24,19 +25,34 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    
     @Column(length = 25, unique = true)
     private String login;
+    
     private String prenom;
     private String nom;
     private String password;
+    @Transient
+    private static int nbr;
+    
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
+    
     @ColumnDefault(value = "true")
     private boolean etat;
 
-    // Navigabilite
-    @OneToOne(mappedBy = "user" )
+    
+    @OneToOne(mappedBy = "user")
     @JoinColumn(name = "clients_id", nullable = true)
     private Client client;
-
+  
+    public User(String email, String login, String password, RoleEnum role) {
+        this.login = login;
+        this.password = password;
+        this.role = role;
+        this.etat = true; 
+    }
+    public User() {
+    
+  }
 }

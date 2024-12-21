@@ -1,54 +1,56 @@
-<!-- <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1"
-    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="DETTES" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Liste des classes persistantes -->
+        <class>com.ism.data.entites.Client</class>
+        <class>com.ism.data.entites.User</class>
+        <class>com.ism.data.entites.Article</class>
+        <class>com.ism.data.entites.Dette</class>
+        <class>com.ism.data.entites.Detail</class>
+        <class>com.ism.data.entites.Payment</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <!-- Propriétés pour PostgreSQL -->
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/gestion_dette_api" />
+            <property name="javax.persistence.jdbc.user" value="postgres" />
+            <property name="javax.persistence.jdbc.password" value="root" />
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+
+            <!-- Hibernate configuration -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.cache.use_second_level_cache" value="false" />
+        </properties>
+    </persistence-unit>
+
+    <!-- Exemple d'unité de persistance pour MySQL (désactivée) -->
+    <!--
     <persistence-unit name="MYSQLDETTES" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.ism.data.entites.Client</class>
         <class>com.ism.data.entites.User</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestion_dette_2025" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url"
-                value="jdbc:mysql://localhost:3306/gestion_dette_2025" />
-            <property name="javax.persistence.jdbc.user" value="root" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
         </properties>
     </persistence-unit>
-</persistence>   -->
-<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
-             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
-             version="2.1">
-	<persistence-unit name="DETTES" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		
-		<class>com.ism.data.entites.Client</class>
-        <class>com.ism.data.entites.User</class>
-        <class>com.ism.entities.Role</class>
-        <class>com.ism.entities.Dette</class>
-
-		<exclude-unlisted-classes>true</exclude-unlisted-classes>
-
-		<properties>
-
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/gestion_dette_2025" />
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="root" />
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-
-
-			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
-
-			<property name="hibernate.cache.use_second_level_cache" value="false" />
-		</properties>
-	</persistence-unit>
+    -->
 </persistence>

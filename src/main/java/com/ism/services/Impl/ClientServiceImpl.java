@@ -36,4 +36,13 @@ public class ClientServiceImpl implements ClientService {
         return clientRepository.selectBySurname(surname);
     }
 
+    @Override
+    public Client findById(int clientId) {
+        return clientRepository.selectById(clientId);
+    }
+    
+    @Override
+    public Client findById(List<Client> clients, int clientId) {
+        return clients.stream().filter(cl -> cl.getId() == clientId).findFirst().orElse(null);
+    }
 }

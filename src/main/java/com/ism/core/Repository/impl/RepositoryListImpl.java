@@ -1,22 +1,24 @@
 package com.ism.core.Repository.impl;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import com.ism.core.Repository.Repository;
 
+public class RepositoryListImpl<T> implements Repository<T> {
+    protected List<T> list = new ArrayList<>();
 
-public class RepositoryListImpl<T>  implements Repository<T> {
-     protected List<T> list = new ArrayList<>();
-
- 
-     @Override
+    @Override
     public void insert(T data) {
         list.add(data);
     }
+
     @Override
     public List<T> selectAll() {
         return list;
+    }
+
+    public void setData(List<T> newList) {
+        this.list = newList;
     }
 }
